@@ -1,17 +1,39 @@
 // FrogRiverOne.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
+#include <algorithm>
 #include <vector>
 #include <iostream>
 int solution(int X, std::vector<int>& A) {
 
-    for (int i = X; i>0)
+  //search for each position and store it's index, when all the indexes are stored, highest number is earliest
+  // X - t
+  // -----
+  // 1 - 0
+  // 2 - 4
+  // 3 - 1
+  // 4 - 3
+  // 5 - 6
+  //
+  //
+
+    std::vector<int> leafTimes;
+    for (auto i = 1; i<=X; ++i)
+    {
+      auto indexOfLeaf = std::find(A.begin(), A.end(), i);
+      if (indexOfLeaf == A.end()) return -1;
+      leafTimes.push_back(indexOfLeaf - A.begin());
+    }
+
+    std::sort(leafTimes.begin(), leafTimes.end());
+
+    return leafTimes.back();
 }
 
 int main()
 {
-    std::vector<int> A{ 1,3,4,2,3,5,4 };
+    std::vector<int> A{ 1,3,1,4,2,3,5,4 };
 
-    std::cout << "Hello World!\n";
+    std::cout << solution(5,A) << "\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
