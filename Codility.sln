@@ -29,6 +29,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FrogRiverOne", "FrogRiverOn
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PermCheck", "PermCheck\PermCheck.vcxproj", "{98DE8DA5-9600-4CE7-8039-07224040130B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrefixSum", "PrefixSum\PrefixSum.vcxproj", "{1241654B-7E4D-4CEB-924A-30683C7C1613}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -141,6 +143,14 @@ Global
 		{98DE8DA5-9600-4CE7-8039-07224040130B}.Release|x64.Build.0 = Release|x64
 		{98DE8DA5-9600-4CE7-8039-07224040130B}.Release|x86.ActiveCfg = Release|Win32
 		{98DE8DA5-9600-4CE7-8039-07224040130B}.Release|x86.Build.0 = Release|Win32
+		{1241654B-7E4D-4CEB-924A-30683C7C1613}.Debug|x64.ActiveCfg = Debug|x64
+		{1241654B-7E4D-4CEB-924A-30683C7C1613}.Debug|x64.Build.0 = Debug|x64
+		{1241654B-7E4D-4CEB-924A-30683C7C1613}.Debug|x86.ActiveCfg = Debug|Win32
+		{1241654B-7E4D-4CEB-924A-30683C7C1613}.Debug|x86.Build.0 = Debug|Win32
+		{1241654B-7E4D-4CEB-924A-30683C7C1613}.Release|x64.ActiveCfg = Release|x64
+		{1241654B-7E4D-4CEB-924A-30683C7C1613}.Release|x64.Build.0 = Release|x64
+		{1241654B-7E4D-4CEB-924A-30683C7C1613}.Release|x86.ActiveCfg = Release|Win32
+		{1241654B-7E4D-4CEB-924A-30683C7C1613}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
