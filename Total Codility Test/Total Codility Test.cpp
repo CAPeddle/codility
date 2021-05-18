@@ -11,7 +11,12 @@
 #include <sstream>
 #include <vector>
 
-#define TASK3
+#define TASK4
+
+#ifdef TASK4
+#include "Graph.h"
+#endif
+
 
 std::string task1(std::vector<std::string>& A, std::vector<std::string>& B, std::string& P) {
   const auto hits = std::count_if(std::begin(B), std::end(B), [P](const std::string& _number)
@@ -193,6 +198,23 @@ int task3(int Y, std::string& A, std::string& B, std::string& W) {
 }
 #endif
 
+bool task4 (int N, std::vector<int> &A, std::vector<int>& B)
+{
+  if (B.size() != A.size()) return false;
+  if (B.size() < 2 ) return false;
+
+  Graph g = Graph(N, false);
+
+  for (int i = 0; i < B.size(); ++i)
+  {
+    g.addEdge(A.at(i) , B.at(i));    
+  }
+
+  g.printGraph();
+
+  return g.isConnected();
+}
+
 
 int main()
 {
@@ -229,7 +251,31 @@ int main()
 
 #endif
 
+#ifdef TASK4
 
+  std::vector<int> A{ 1,2,4,4,3 };
+  std::vector<int> B{ 2,3,1,3,1 };
+
+  std::cout << task4(4, A, B) << "\n\n";
+
+
+  A = { 1,2,1,3 };
+  B = { 2,4,3,4 };
+
+  std::cout << task4(4, A, B) << "\n\n";
+
+
+  A = { 2,4,5,3};
+  B = { 3,5,6,4};
+
+  std::cout << task4(6, A, B) << "\n\n";
+
+
+  A = { 1,3 };
+  B = { 2,2 };
+
+  std::cout << task4(3, A, B) << "\n\n";
+#endif
 
 }
 
