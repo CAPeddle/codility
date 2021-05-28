@@ -6,6 +6,44 @@
 #include <vector>
 
 
+int binarySolution(std::vector<int>& A) {
+  // write your code in C++14 (g++ 6.2.0)
+
+  if (A.empty()) return 1;
+  std::sort(A.begin(), A.end());
+
+  int leftLimit = 0, rightLimit = A.size() - 1;
+
+  // perform binary search to find missing
+  while (leftLimit <= rightLimit) {
+    int middle = (leftLimit + rightLimit) / 2;
+
+    // Element at index `i` should be
+    // `i+1` (e.g. 1 at index 0). If
+    // this is the first element 
+    // which is not `i`+ 1, then 
+    // missing element is middle+1 
+    if (A[middle] != middle + 1 &&
+      A[middle - 1] == middle)
+      return middle + 1;
+
+    // If this is not the first missing 
+    // element search in left subarray 
+    if (A[middle] != middle + 1)
+      // update rightLimit to search only left
+      rightLimit = middle - 1;
+
+    // if it follows index+1 property then 
+    // search in right side 
+    else
+      // update leftLimit to search only right
+      leftLimit = middle + 1;
+  }
+
+  // Not found? No element is missing 
+  return -1;
+}
+
 int solution(std::vector<int>& A) {
   // write your code in C++14 (g++ 6.2.0)
 
@@ -49,28 +87,30 @@ int main()
 
 
   std::vector<int>  M = { -1 , -3 , -399, 5, 7 ,10, 0 };
-  std::cout << "M" << solution(M) << std::endl;
+  std::cout << "M:" << solution(M) << " M:" << binarySolution(M) << std::endl;
+
+  
 
   std::vector<int>  L = { 2 };
-  std::cout << "L" << solution(L) << std::endl;
+  std::cout << "L" << solution(L) << " L:" << binarySolution(L) << std::endl;
 
   std::vector<int>  G = { 1, 2, 3 };
-  std::cout << "G" << solution(G) << std::endl;
+  std::cout << "G" << solution(G) << " G:" << binarySolution(G) << std::endl;
 
   std::vector<int>  A = { 1, 3, 6, 4, 1, 2 };
-  std::cout << "A" << solution(A) << std::endl;
+  std::cout << "A" << solution(A) << " A:" << binarySolution(A) << std::endl;
 
   std::vector<int>  B = { -1 , -3 };
-  std::cout << "B" << solution(B) << std::endl;
+  std::cout << "B" << solution(B) << " B:" << binarySolution(B) << std::endl;
 
   std::vector<int>  C = { 1, 3, 6, 4, 1, 200 };
-  std::cout << "C" << solution(C) << std::endl;
+  std::cout << "C" << solution(C) << " C:" << binarySolution(C) << std::endl;
 
   std::vector<int>  D = { 1, 3, 6, 4, 1, 2 };
-  std::cout << "D" << solution(D) << std::endl;
+  std::cout << "D" << solution(D) << " D:" << binarySolution(D) << std::endl;
 
   std::vector<int>  X = { 1000001, 3, 6, 4, 1, -1000001 };
-  std::cout << "X" << solution(X) << std::endl;
+  std::cout << "X" << solution(X) << " X:" << binarySolution(X) << std::endl;
     
 }
 
