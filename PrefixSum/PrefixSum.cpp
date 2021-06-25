@@ -3,20 +3,28 @@
 
 #include <iostream>
 #include <vector>
+#include "C:\Users\cpeddle\source\repos\Codility\Total Codility Test\AuxiliaryFunctions.h"
 
 
-std::vector<int> prefix_sums(std::vector<int> A)
+std::vector<int> prefix_sums(std::vector<int> _a)
 {
-  if (A.empty() || A.size() == 1) return A;
+  if (_a.empty() || _a.size() == 1) return _a;
 
-  const size_t n = A.size();
+  const size_t n = _a.size();
   std::vector<int> P;
-  P.push_back(A.at(0));
-  for (size_t i = 1; i < n; ++i)
+  try
   {
-    int pkMin1 = P.at(i - 1);
-    int akMin1 = A.at(i - 1);
-    P.push_back(P.at(i - 1) + A.at(i));
+    P.push_back(_a.at(0));
+    for (size_t i = 1; i < n; ++i)
+    {
+      int pkMin1 = P.at(i - 1);
+      int akMin1 = _a.at(i - 1);
+      P.push_back(P.at(i - 1) + _a.at(i));
+    }    
+  }
+  catch (std::exception &e)
+  {
+    std::cout << e.what() << "\n";
   }
   return P;
 }
@@ -30,8 +38,9 @@ return P
 
 int count_total(const std::vector<int>& _a, const int &_x, const int &_y)
 {
-  if (_a.size() < _y + 1) throw std::invalid_argument("received negative value");
-  if (_a.size() < _x) throw std::invalid_argument("received negative value");
+  if (_a.size() < _y + 1) throw std::invalid_argument("Invalid Y value");
+  if (_a.size() < _x) throw std::invalid_argument("Invalid X value");
+
   return _a.at(_y + 1) - _a.at(_x);
 }
 
@@ -84,9 +93,18 @@ int main()
   try
   {
     auto pref = prefix_sums(A);
-    auto count = count_total(pref, 2, 5);
+    printVector(A);
+    std::cout << "\n";
+    printVector(pref);
+    std::cout << "\n";
+    auto count = count_total(pref, 0, 6);
 
+    std::cout << count << "\n";
     std::cout << mushrooms(A, 4, 6);    
+  }
+  catch (std::exception e)
+  {
+    std::cout << "BAD " << e.what();
   }
   catch (...)
   {

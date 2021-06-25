@@ -1,6 +1,7 @@
 #ifndef SOME_UNIQUE_NAME_HERE
 #define SOME_UNIQUE_NAME_HERE
 
+#include <iomanip>
 #include <iostream>
 #include <vector>
 
@@ -67,7 +68,7 @@ void printContainer(T theContainer)
 
 inline void printVector(const std::vector<int>& _vector) {
     for (auto i = _vector.begin(); i != _vector.end(); i++)
-        std::cout << *i << ' ';
+        std::cout << setw(2) << *i << ' ';
 }
 
 inline int findMin(int* arr, int start, int end) {
