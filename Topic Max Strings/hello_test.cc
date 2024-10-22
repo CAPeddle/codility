@@ -181,6 +181,56 @@ TEST(SolutionTest, Phind_Tests) {
   EXPECT_EQ(actual15, expected15);
 }
 
+TEST(SolutionTest, AdditionalEdgeCases) {
+  // Edge case: Minimum N and K
+  vector<string> S1 = {"a"};
+  EXPECT_EQ(solution(S1, 1), 1);
+
+  // Edge case: Maximum N and minimum K
+  vector<string> S2(50000, "a");
+  EXPECT_EQ(solution(S2, 1), 50000);
+
+  // Edge case: Maximum N and maximum K
+  vector<string> S3(50000, "abcdefghij");
+  EXPECT_EQ(solution(S3, 10), 50000);
+
+  // Edge case: Strings with maximum length
+  vector<string> S4 = {"abcdefghij", "abcdefghij", "abcdefghij"};
+  auto actual = solution(S4, 9);
+  auto expected = 0;
+  EXPECT_EQ(actual, expected);
+
+  // Edge case: Strings with overlapping characters
+  vector<string> S5 = {"abc", "bcd", "cde", "def", "efg"};
+  auto actual1 = solution(S5, 3);
+  auto expected1 = 1;
+  EXPECT_EQ(actual1, expected1);
+
+  // Edge case: All strings are the same
+  vector<string> S6 = {"abc", "abc", "abc"};
+  EXPECT_EQ(solution(S6, 3), 3);
+
+  // Edge case: No strings can be built
+  vector<string> S7 = {"abc", "def", "ghi"};
+  EXPECT_EQ(solution(S7, 0), 0);
+
+  // Edge case: All strings can be built with fewer letters than K
+  vector<string> S8 = {"a", "b", "c"};
+  EXPECT_EQ(solution(S8, 10), 3);
+
+  // Edge case: Strings with non-overlapping characters
+  vector<string> S9 = {"abc", "def", "ghi"};
+  EXPECT_EQ(solution(S9, 3), 1);
+
+  // Edge case: Large input with mixed string lengths
+  vector<string> S10;
+  for (int i = 0; i < 25000; ++i) {
+    S10.push_back("abc");
+    S10.push_back("defghij");
+  }
+  EXPECT_EQ(solution(S10, 7), 25000);
+}
+
 /*
 
 You are given an array S made of N strings and an integer K.
