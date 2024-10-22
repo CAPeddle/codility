@@ -114,6 +114,33 @@ std::string getSortedLetterFrequency(const std::vector<std::string> &strings) {
   return result;
 }
 
+int solution(vector<string> &S, int K) {
+  // description says this can be assumed to not be possible
+  // still feels wrong to not have this check
+  if (K == 0) return 0;
+
+  auto uniqueStrings = removeDuplicateLetters(S);
+  auto fullCharset = getSortedLetterFrequency(uniqueStrings);
+  uint maxLetters = LetterSequenceBasedBitmaskOf(fullCharset, fullCharset);
+
+  auto result = 0;
+  for (uint i = 0; i <= maxLetters; ++i) {
+    if (!HasAtmostBitsSet(i, K)) {
+      continue;
+    }
+    auto buildable = 0;
+    for (const auto &str : uniqueStrings) {
+      uint bitmask = LetterSequenceBasedBitmaskOf(str, fullCharset);
+      if ((bitmask & i) == bitmask) {
+        buildable++;
+      }
+    }
+    result = std::max(result, buildable);
+  }
+
+  return result;
+}
+
 int NumBuildable(const std::vector<std::string> &A, std::string S) {
   int result = 0;
 
@@ -144,33 +171,6 @@ int NumBuildable(const std::vector<std::string> &A, std::string S) {
       result++;
     }
   }
-  return result;
-}
-
-int solution(vector<string> &S, int K) {
-  // description says this can be assumed to not be possible
-  // still feels wrong to not have this check
-  if (K == 0) return 0;
-
-  auto uniqueStrings = removeDuplicateLetters(S);
-  auto fullCharset = getSortedLetterFrequency(uniqueStrings);
-  uint maxLetters = LetterSequenceBasedBitmaskOf(fullCharset, fullCharset);
-
-  auto result = 0;
-  for (uint i = 0; i <= maxLetters; ++i) {
-    if (!HasAtmostBitsSet(i, K)) {
-      continue;
-    }
-    auto buildable = 0;
-    for (const auto &str : uniqueStrings) {
-      uint bitmask = LetterSequenceBasedBitmaskOf(str, fullCharset);
-      if ((bitmask & i) == bitmask) {
-        buildable++;
-      }
-    }
-    result = std::max(result, buildable);
-  }
-
   return result;
 }
 
