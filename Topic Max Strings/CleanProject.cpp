@@ -82,10 +82,8 @@ std::vector<std::string> removeDuplicateLetters(
 std::string getSortedLetterFrequency(const std::vector<std::string> &strings) {
   std::unordered_map<char, int> letterCount;
 
-  auto uniqueStrings = removeDuplicateLetters(strings);
-
   // Count the frequency of each letter
-  for (const auto &str : uniqueStrings) {
+  for (const auto &str : strings) {
     for (char c : str) {
       letterCount[c]++;
     }
