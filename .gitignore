@@ -40,3 +40,4 @@
 *.ilk
 *.user
 Missing Element/.vscode/settings.json
+build/

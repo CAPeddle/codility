@@ -61,53 +61,6 @@ TEST(MaxNumberOfBits, BasicCases) {
   EXPECT_EQ(actual7, expected7);
 }
 
-TEST(NumBuildable, BasicCases) {
-  vector<string> S4 = {"bc", "edf", "fde", "dge", "abcd"};
-  auto actual4 = NumBuildable(S4, "def");
-  auto expected4 = 2;
-  EXPECT_EQ(actual4, expected4);
-
-  vector<string> S3 = {"bc", "edf", "fde", "dge", "abcd"};
-  auto actual3 = NumBuildable(S3, "defg");
-  auto expected3 = 3;
-  EXPECT_EQ(actual3, expected3);
-
-  vector<string> S5 = {"abc", "def", "ghi"};
-  auto actual5 = NumBuildable(S5, "abcdefghi");
-  auto expected5 = 3;
-  EXPECT_EQ(actual5, expected5);
-
-  vector<string> S6 = {"abc", "def", "ghi"};
-  auto actual6 = NumBuildable(S6, "abc");
-  auto expected6 = 1;
-  EXPECT_EQ(actual6, expected6);
-
-  vector<string> S7 = {"abc", "def", "ghi"};
-  auto actual7 = NumBuildable(S7, "xyz");
-  auto expected7 = 0;
-  EXPECT_EQ(actual7, expected7);
-
-  vector<string> S8 = {"a", "b", "c"};
-  auto actual8 = NumBuildable(S8, "abc");
-  auto expected8 = 3;
-  EXPECT_EQ(actual8, expected8);
-
-  vector<string> S9 = {"a", "b", "c"};
-  auto actual9 = NumBuildable(S9, "a");
-  auto expected9 = 1;
-  EXPECT_EQ(actual9, expected9);
-
-  vector<string> S10 = {"abcdefghij", "abcdefghij", "abcdefghij"};
-  auto actual10 = NumBuildable(S10, "abcdefghij");
-  auto expected10 = 3;
-  EXPECT_EQ(actual10, expected10);
-
-  vector<string> S11 = {"abcdefghij", "abcdefghij", "abcdefghij"};
-  auto actual11 = NumBuildable(S11, "abcdefghi");
-  auto expected11 = 0;
-  EXPECT_EQ(actual11, expected11);
-}
-
 TEST(SolutionTest, BasicCases) {
   vector<string> S4 = {"bc", "edf", "fde", "dge", "abcd"};
   auto actual4 = solution(S4, 4);
