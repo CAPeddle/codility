@@ -17,14 +17,14 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 add_executable(
-  blank_test
+  numberOfDiscIntersections
   hello_test.cc
   CleanProject.cpp
   )
 target_link_libraries(
-  blank_test
+  numberOfDiscIntersections
   GTest::gtest_main
 )
 
 include(GoogleTest)
-gtest_discover_tests(blank_test)
+gtest_discover_tests(numberOfDiscIntersections)
