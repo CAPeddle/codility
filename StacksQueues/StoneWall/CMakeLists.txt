@@ -1,33 +1,30 @@
 cmake_minimum_required(VERSION 3.14)
-project(AllProjects)
+project(StoneWall)
 
-# Set the C++ standard
+# GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Include FetchContent module
 include(FetchContent)
-
-# Declare GoogleTest
 FetchContent_Declare(
   googletest
   URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
 )
-
 # For Windows: Prevent overriding the parent project's compiler/linker settings
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-
-# Make GoogleTest available
 FetchContent_MakeAvailable(googletest)
 
-# Enable testing
 enable_testing()
 
-# Add subdirectories
-add_subdirectory(Arrays)
-add_subdirectory(TopicOct2024)
-add_subdirectory(SmallestPosInteger)
-add_subdirectory(TimeComplexity)
-add_subdirectory(Blank)
-add_subdirectory(Sorting)
-add_subdirectory(StacksQueues)
+add_executable(
+  StoneWall
+  hello_test.cc
+  CleanProject.cpp
+  )
+target_link_libraries(
+  StoneWall
+  GTest::gtest_main
+)
+
+include(GoogleTest)
+gtest_discover_tests(StoneWall)
