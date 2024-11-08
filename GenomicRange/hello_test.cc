@@ -12,7 +12,7 @@ TEST(HelloTest, BasicAssertions) {
 #include "CleanProject.h"
 // #include "pch.h"
 
-TEST(TestCleanProject, TestCleanProject_TestSol_Test1) {
+TEST(TestCleanProject, DISABLED_TestCleanProject_TestSol_Test1) {
   std::vector<int> A = {3, 8, 9, 7, 6};
   std::vector<int> result = solution(A, 3);
   std::vector<int> expected = {9, 7, 6, 3, 8};

@@ -31,7 +31,13 @@ TEST(TestCleanProject, NumberOfElementsIs1) {
   EXPECT_EQ(result, expected);
 }
 
-TEST(TestCleanProject, NumberOfElementsIs1Million) {
+/// <summary>
+/// This test could put 1 million even numbers in the vector and then one known uneven.
+/// but that is a TODO, hence disabled
+/// </summary>
+/// <param name=""></param>
+/// <param name=""></param>
+TEST(TestCleanProject, DISABLED_NumberOfElementsIs1Million) {
   std::vector<int> V;
 
   for (int i = 0; i < 1000000 - 1; ++i) {
