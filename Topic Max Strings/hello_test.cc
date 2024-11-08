@@ -26,37 +26,37 @@ TEST(SortedLetterFrequency, BasicCases) {
 
 TEST(GetFullCharSetNumber, BasicCases) {
   std::string fullCharset = "defbcga";
-  uint actual1 = LetterSequenceBasedBitmaskOf(fullCharset, fullCharset);
+  unsigned int actual1 = LetterSequenceBasedBitmaskOf(fullCharset, fullCharset);
   auto expected1 = 127;
   EXPECT_EQ(actual1, expected1);
 }
 
 TEST(MaxNumberOfBits, BasicCases) {
-  uint actual1 = HasAtmostBitsSet(100, 4);
+  unsigned int actual1 = HasAtmostBitsSet(100, 4);
   auto expected1 = true;
   EXPECT_EQ(actual1, expected1);
 
-  uint actual2 = HasAtmostBitsSet(102, 4);
+  unsigned int actual2 = HasAtmostBitsSet(102, 4);
   auto expected2 = true;
   EXPECT_EQ(actual2, expected2);
 
-  uint actual3 = HasAtmostBitsSet(55, 4);
+  unsigned int actual3 = HasAtmostBitsSet(55, 4);
   auto expected3 = false;
   EXPECT_EQ(actual3, expected3);
 
-  uint actual4 = HasAtmostBitsSet(110, 4);
+  unsigned int actual4 = HasAtmostBitsSet(110, 4);
   auto expected4 = false;
   EXPECT_EQ(actual4, expected4);
 
-  uint actual5 = HasAtmostBitsSet(0, 4);
+  unsigned int actual5 = HasAtmostBitsSet(0, 4);
   auto expected5 = true;
   EXPECT_EQ(actual5, expected5);
 
-  uint actual6 = HasAtmostBitsSet(31, 4);
+  unsigned int actual6 = HasAtmostBitsSet(31, 4);
   auto expected6 = false;
   EXPECT_EQ(actual6, expected6);
 
-  uint actual7 = HasAtmostBitsSet(103, 4);
+  unsigned int actual7 = HasAtmostBitsSet(103, 4);
   auto expected7 = false;
   EXPECT_EQ(actual7, expected7);
 }

@@ -24,9 +24,9 @@ using namespace std;
  * @return A bitmask representing the presence of characters from fullCharset in
  * the string S.
  */
-uint LetterSequenceBasedBitmaskOf(const std::string &S,
+unsigned int LetterSequenceBasedBitmaskOf(const std::string &S,
                                   const std::string fullCharset) {
-  uint result = 0;
+  unsigned int result = 0;
 
   for (char c : S) {
     size_t findPosition = fullCharset.find(c);
@@ -44,7 +44,7 @@ uint LetterSequenceBasedBitmaskOf(const std::string &S,
   return result;
 }
 
-bool HasAtmostBitsSet(uint num, uint maxBits) {
+bool HasAtmostBitsSet(unsigned int num, unsigned int maxBits) {
   int count = 0;
   while (num > 0) {
     if (num & 1) {
@@ -121,16 +121,16 @@ int solution(vector<string> &S, int K) {
 
   auto uniqueStrings = removeDuplicateLetters(S);
   auto fullCharset = getSortedLetterFrequency(uniqueStrings);
-  uint maxLetters = LetterSequenceBasedBitmaskOf(fullCharset, fullCharset);
+  unsigned int maxLetters = LetterSequenceBasedBitmaskOf(fullCharset, fullCharset);
 
   auto result = 0;
-  for (uint i = 0; i <= maxLetters; ++i) {
+  for (unsigned int i = 0; i <= maxLetters; ++i) {
     if (!HasAtmostBitsSet(i, K)) {
       continue;
     }
     auto buildable = 0;
     for (const auto &str : uniqueStrings) {
-      uint bitmask = LetterSequenceBasedBitmaskOf(str, fullCharset);
+      unsigned int bitmask = LetterSequenceBasedBitmaskOf(str, fullCharset);
       if ((bitmask & i) == bitmask) {
         buildable++;
       }
