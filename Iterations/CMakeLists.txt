@@ -1,2 +1,2 @@
 # Add subdirectories
-add_subdirectory(StoneWall)
+add_subdirectory("Codility BinaryGap")
