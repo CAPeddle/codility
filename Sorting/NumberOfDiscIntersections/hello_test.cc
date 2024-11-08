@@ -15,5 +15,5 @@ TEST(NumberOfDiscIntersections, TestCleanProject_TestSol_Test1) {
   std::vector<int> A = {3, 8, 9, 7, 6};
   int actual = solution(A);
   int expected = 9;
-  EXPECT_EQ(result, expected);
+  EXPECT_EQ(actual, expected);
 }
