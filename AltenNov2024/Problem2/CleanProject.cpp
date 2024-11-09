@@ -3,10 +3,29 @@
 #include "CleanProject.h"
 
 #include <algorithm>
+#include <string>
+#include <unordered_set>
 #include <vector>
 
-std::vector<int> solution(std::vector<int>& A, int K) {
-  std::vector<int> result;
+int solution(std::string &S) {
+  std::unordered_set<char> charSet;
+  int substrCount = 0;
 
-  return result;
+  if (S.empty()) {
+    return 0;
+  }
+
+  for (char c : S) {
+    if (charSet.find(c) != charSet.end()) {
+      substrCount++;
+      charSet.clear();
+    }
+    charSet.insert(c);
+  }
+
+  if (!charSet.empty()) {
+    substrCount++;
+  }
+
+  return substrCount;
 }

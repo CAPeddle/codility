@@ -18,3 +18,23 @@ TEST(AltenProb1, DISABLED_TestCleanProject_TestSol_Test1) {
   std::vector<int> expected = {9, 7, 6, 3, 8};
   EXPECT_EQ(result, expected);
 }
+
+/*
+
+the problem statement is to cheange one line of code to make the code pass
+#include <algorithm>
+#include <vector>
+
+int solution(vector<int>& A) {
+    int ans = 0;
+    for (uint i = 1; i < A.size(); i++) {
+        if (ans > A[i]) {
+            ans = A[i];
+        }
+    }
+    return ans;
+}
+
+change the for loop to check from 0
+
+*/

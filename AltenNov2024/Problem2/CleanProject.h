@@ -1,6 +1,6 @@
 // CleanProject.h
 #pragma once
 
-#include <vector>
+#include <string>
 
-std::vector<int> solution(std::vector<int>& A, int K);
+int solution(std::string &S);
