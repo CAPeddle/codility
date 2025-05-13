@@ -24,7 +24,7 @@ FetchContent_MakeAvailable(googletest)
 enable_testing()
 
 # Add subdirectories
-set(EXCLUDED_DIRS "ASML Jonathan" ".github" "Helpers" "TotalJan2021" "CountingElements" "Iterations" ".git" ".vscode")
+set(EXCLUDED_DIRS "ASML Jonathan" ".github" "Helpers" "TotalJan2021" "Iterations" ".git" ".vscode")
 
 file(GLOB subdirs RELATIVE ${CMAKE_SOURCE_DIR} ${CMAKE_SOURCE_DIR}/*)
 foreach(subdir ${subdirs})
