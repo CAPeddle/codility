@@ -1,6 +1,6 @@
 
 // Frog Jump.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// https://app.codility.com/programmers/lessons/3-time_complexity/frog_jmp/
 
 #include <iostream>
 
@@ -15,6 +15,7 @@ int solution(int X, int Y, int D) {
 int main()
 {
     std::cout << solution(1, 2, 30) << "\n";
+    std::cout << solution(10, 85, 30) << "\n";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
