@@ -1,7 +1,16 @@
-cmake_minimum_required(VERSION 3.10)
+
+cmake_minimum_required (VERSION 3.14)
 project(PermCheck)
 
-set(CMAKE_CXX_STANDARD 11)
+# Create library from source files
+add_library(PermCheckLib 
+    "PermCheck.cpp"
+    "PermCheck.h"
+)
 
-# Specify the source files needed for the PermCheck challenge
-# add_executable(PermCheck <source_files>)
+# Add source to this project's executable.
+add_executable (PermCheck "main.cpp")
+target_link_libraries(PermCheck PRIVATE PermCheckLib)
+
+# Add the test subdirectory
+add_subdirectory(test)
