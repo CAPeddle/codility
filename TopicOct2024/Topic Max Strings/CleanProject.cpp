@@ -45,7 +45,7 @@ unsigned int LetterSequenceBasedBitmaskOf(const std::string &S,
 }
 
 bool HasAtmostBitsSet(unsigned int num, unsigned int maxBits) {
-  int count = 0;
+  unsigned int count = 0;
   while (num > 0) {
     if (num & 1) {
       count++;
