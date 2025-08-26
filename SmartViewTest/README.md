@@ -11,6 +11,8 @@ This repository contains a CMake setup for building the SmartViewTest project.
 
 ### Basic Usage
 
+C:\Users\cpeddle\source\repos\codility>"C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" --build c:/Users/cpeddle/source/repos/codility/build --config Debug --target SmartViewTest -j 10 -- && "C:/Users/cpeddle/source/repos/codility/build/bin/Debug/SmartViewTest.exe"
+
 From the current directory (cpp\SmartViewTest)
 ```powershell
 # Create and navigate to the build directory
